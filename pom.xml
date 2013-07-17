@@ -151,13 +151,15 @@
 			<version>8.1.11.v20130520</version>
 		</dependency>
 		<dependency>
-			<groupId>JakesDomain</groupId>
-			<artifactId>JakesDomain</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>JakesDomain</groupId>
+			<artifactId>JakesDomain</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>pom</type>
 		</dependency>
 	</dependencies>
 	<build>
@@ -221,14 +223,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>JakesDomain</groupId>
-				<artifactId>JakesDomain</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 </project>
