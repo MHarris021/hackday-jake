@@ -1,7 +1,5 @@
 package com.sf.jake.config;
 
-import java.net.URI;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
@@ -17,7 +15,7 @@ public class MongoRespositoryConfig extends AbstractMongoConfiguration{
 
 	
 	@Value(value="${mongo.uri}")
-	private MongoClientURI uri;
+	private String uri;
 	
 	@Override
 	protected String getDatabaseName() {
@@ -26,7 +24,8 @@ public class MongoRespositoryConfig extends AbstractMongoConfiguration{
 
 	@Override
 	public Mongo mongo() throws Exception {
-		MongoClient mongoClient = new MongoClient(uri);
+		MongoClientURI mongoClientURI = new MongoClientURI(uri);
+		MongoClient mongoClient = new MongoClient(mongoClientURI);
 		return mongoClient;
 	}
 
