@@ -2,27 +2,43 @@
 <html>
 <head>
 
-<script src="/resources/js/jquery.js" type="text/javascript"></script>
-<script src="/resources/js/virtualAgent.js" type="text/javascript"></script>
+<script src="/resources/js/jquery.js"></script>
 
-<link href="/resources/css/main.css" type="text/css" rel="stylesheet">
+<style>
+#microphone{
+	font-size: 25px;
+	width: 30px;
+	height: 50px;
+	cursor: pointer;
+	border:none;
+	margin-left: 50px;
+	outline: none;
+	background: transparent;
+}
+</style>
 
 
 </head>
 <body>
-	<div id="main">
-	<img alt="Jake from State Farm" src="/resources/images/jake.jpg"></img>
-		<div id="inputArea" class="uiArea">
-			<input type="text" id="inputBox"></input> 
-			<input x-webkit-speech
-				id="microphone">
-		</div>
-		<div id="outputArea" class="uiArea">
-			<div id="output"></div>
-		</div>
+<h2 style="margin-left: 110px;">Welcome to State Farm Virtual Agent</h2>
+<img style="width: 90px; height: 90px; position: absolute; top: 15px; left: 15px;" src="/resources/images/statefarm.jpg"/>
+<img style="margin-left: 50px;" src="/resources/images/jake.jpg"/>
 
-		<iframe id="audioiFrame" style="display: none;" src=""> </iframe>
-	</div>
+<div style="margin-top: -90px; margin-left: 320px;">
+<input type="text" style="display:none" id="inputBox"></input>
+<input x-webkit-speech id="microphone" style="" >
+</div>
+<div>
+<span id="firstName"></span>
+
+<div id="output" style="margin-top: -100px; margin-left: 500px; color: red; font-size: 25px;">
+
+</div>
+
+</div>
+<script src="/resources/js/virtualAgent.js"></script>
+
+<iframe id="audioiFrame" style="display: none;" src=""/>
 </body>
 
 </html>
