@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sf.jake.model.Customer;
 import com.sf.jake.services.CustomerService;
@@ -32,6 +33,17 @@ public class CustomerController {
 		return responseEntity;
 	}
 
+	@RequestMapping(value = "", method = RequestMethod.GET, params={"firstName", "lastName"})
+	public ResponseEntity<Customer> getCustomerByName(
+			@RequestParam String firstName, @RequestParam String lastName) {
+		String name = StringUtils.join(firstName, " ", lastName);
+		Customer customer = customerService.getCustomersByName(name).get(0);
+				
+		ResponseEntity<Customer> responseEntity = new ResponseEntity<Customer>(
+				customer, HttpStatus.OK);
+		return responseEntity;
+	}
+	
 	@RequestMapping(value = "/{accountName}", method = RequestMethod.GET)
 	public ResponseEntity<Customer> getCustomerByAccount(
 			@PathVariable String accountName) {
