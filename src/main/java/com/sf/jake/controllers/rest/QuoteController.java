@@ -29,9 +29,6 @@ public class QuoteController {
 	private CarInsuranceRepository carInsuranceRepository;
 
 	@Resource
-	private List<CarInsuranceQuote> carInsuranceQuotes;
-
-	@Resource
 	private BaseModels baseModels;
 
 	@Resource
