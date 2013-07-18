@@ -10,27 +10,26 @@ import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
 
 import com.sf.jake.model.Address;
+import com.sf.jake.model.CarInsurance;
 import com.sf.jake.model.ContactInfo;
 import com.sf.jake.model.Customer;
 import com.sf.jake.model.Email;
 import com.sf.jake.model.Gender;
 import com.sf.jake.model.Phone;
 import com.sf.jake.model.Product;
-import com.sf.jake.repositories.CarInsuranceRepository;
 import com.sf.jake.services.CustomerService;
 
 @Configuration
-@Lazy
 public class CustomerConfig {
 
-	@Resource
-	private CarInsuranceRepository carInsuranceRepository;
 	
 	@Resource
 	private CustomerService customerService;
+	
+	@Resource
+	List<CarInsurance> carInsuranceList;
 
 	@Bean
 	public Customer johnDoe() {
@@ -53,8 +52,9 @@ public class CustomerConfig {
 		return products;
 	}
 
-	private Product carInsurance() {
-		return carInsuranceRepository.findByVehicleMakeAndVehicleModel("Ford", "Fiesta").get(0);
+	@Bean
+	public Product carInsurance() {
+		return carInsuranceList.get(0); 
 	}
 
 	@Bean
