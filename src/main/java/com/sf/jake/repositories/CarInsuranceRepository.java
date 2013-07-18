@@ -14,7 +14,6 @@ import com.sf.jake.model.Vehicle;
 public interface CarInsuranceRepository extends
 		CrudRepository<CarInsurance, BigInteger> {
 
-	@Query
-	List<CarInsurance> findByVehicle(Vehicle vehicle);
+	
 
 }
