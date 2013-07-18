@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 import org.joda.time.DateTime;
@@ -15,6 +16,7 @@ import com.sf.jake.beans.ReplacementCosts;
 import com.sf.jake.model.BaseCoverageOption;
 import com.sf.jake.model.CarInsurance;
 import com.sf.jake.model.Vehicle;
+import com.sf.jake.services.InsuranceQuoteService;
 
 @Configuration
 public class CarInsuranceConfig {
@@ -30,6 +32,9 @@ public class CarInsuranceConfig {
 
 	@Resource
 	private List<BaseCoverageOption> coverageOptions;
+	
+	@Resource
+	private InsuranceQuoteService insuranceQuoteService;
 
 	@Bean
 	public DateTime now() {
@@ -85,5 +90,12 @@ public class CarInsuranceConfig {
 			vehicles.add(vehicle2);
 		}
 		return vehicles;
+	}
+	
+	@PostConstruct
+	public void init() {
+		for(CarInsurance carInsurance : carInsuranceList()){
+			insuranceQuoteService.generateQuote(carInsurance);
+		}
 	}
 }
