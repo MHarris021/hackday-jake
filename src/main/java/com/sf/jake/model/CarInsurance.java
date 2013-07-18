@@ -4,14 +4,10 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.CompoundIndex;
-import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "autoinsurances")
-@CompoundIndexes({
-@CompoundIndex(dropDups=true, def="{'componentOption':1, 'vehicle' : 1}" )})
 public class CarInsurance implements InsuranceProduct {
 
 	/**
@@ -25,7 +21,6 @@ public class CarInsurance implements InsuranceProduct {
 	private String name = "Auto Insurance";
 	private BigDecimal basePrice;
 	private BigDecimal premium;
-	private String policyNumber;
 	
 	@Indexed
 	private Vehicle vehicle;
@@ -37,6 +32,7 @@ public class CarInsurance implements InsuranceProduct {
 	@Indexed
 	private CoverageOption coverageOption;
 
+	
 	public CarInsurance(Vehicle vehicle, BigDecimal basePrice) {
 		setVehicle(vehicle);
 		setBasePrice(basePrice);
@@ -82,15 +78,6 @@ public class CarInsurance implements InsuranceProduct {
 
 	public void setPremium(BigDecimal premium) {
 		this.premium = premium;
-	}
-
-	@Override
-	public String getPolicyNumber() {
-		return policyNumber;
-	}
-
-	public void setPolicyNumber(String policyNumber) {
-		this.policyNumber = policyNumber;
 	}
 
 	public CoverageOption getCoverageOption() {

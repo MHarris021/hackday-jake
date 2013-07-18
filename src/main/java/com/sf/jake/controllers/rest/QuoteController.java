@@ -2,16 +2,10 @@ package com.sf.jake.controllers.rest;
 
 import javax.annotation.Resource;
 
-import org.joda.time.DateTime;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sf.jake.beans.BaseModels;
-import com.sf.jake.model.CarInsuranceQuote;
-import com.sf.jake.model.Vehicle;
 import com.sf.jake.services.InsuranceQuoteService;
 
 @Controller
