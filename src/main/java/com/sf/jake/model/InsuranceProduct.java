@@ -7,6 +7,6 @@ public interface InsuranceProduct extends Product {
 	
 	BigDecimal getPremium();
 	String getPolicyNumber();
-	Coverable getCovered();
+	
 	
 }

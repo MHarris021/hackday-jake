@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "autoinsurances")
 @CompoundIndexes({
-@CompoundIndex(dropDups=true, def="{'vehicle':1, 'componentOption' : 1}" )})
+@CompoundIndex(dropDups=true, def="{'componentOption':1, 'vehicle' : 1}" )})
 public class CarInsurance implements InsuranceProduct {
 
 	/**
@@ -46,11 +46,6 @@ public class CarInsurance implements InsuranceProduct {
 	}
 	
 	public Vehicle getVehicle() {
-		return vehicle;
-	}
-
-	@Override
-	public Vehicle getCovered() {
 		return vehicle;
 	}
 
