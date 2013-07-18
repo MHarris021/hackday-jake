@@ -1,5 +1,6 @@
 package com.sf.jake.config;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.sf.jake.model.Address;
+import com.sf.jake.model.BaseCoverageOption;
 import com.sf.jake.model.CarInsurance;
 import com.sf.jake.model.ContactInfo;
 import com.sf.jake.model.Customer;
@@ -19,6 +21,7 @@ import com.sf.jake.model.Email;
 import com.sf.jake.model.Gender;
 import com.sf.jake.model.Phone;
 import com.sf.jake.model.Product;
+import com.sf.jake.model.Vehicle;
 import com.sf.jake.services.CustomerService;
 
 @Configuration
@@ -28,9 +31,6 @@ public class CustomerConfig {
 	@Resource
 	private CustomerService customerService;
 	
-	@Resource
-	List<CarInsurance> carInsuranceList;
-
 	@Bean
 	public Customer johnDoe() {
 		Customer customer = new Customer("Doe-1");
@@ -54,7 +54,15 @@ public class CustomerConfig {
 
 	@Bean
 	public Product carInsurance() {
-		return carInsuranceList.get(0); 
+		CarInsurance carInsurance = new CarInsurance(vehicle(), BigDecimal.valueOf(500));
+		carInsurance.setCoverageOption(new BaseCoverageOption("No Option", BigDecimal.ZERO));
+		carInsurance.setPremium(BigDecimal.valueOf(500));
+		return carInsurance;
+	}
+
+	private Vehicle vehicle() {
+		Vehicle vehicle = new Vehicle(Calendar.getInstance().getTime(), "Ford", "Explorer");
+		return vehicle;
 	}
 
 	@Bean
