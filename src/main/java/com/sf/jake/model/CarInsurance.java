@@ -4,10 +4,12 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "autoinsurances")
+@CompoundIndex(dropDups=true, def="{'vehicle':1, 'componentOption' : 1}" )
 public class CarInsurance implements InsuranceProduct {
 
 	/**
@@ -30,6 +32,7 @@ public class CarInsurance implements InsuranceProduct {
 		this.vehicle = vehicle;
 	}
 
+	@Indexed
 	private CoverageOption coverageOption;
 
 	public CarInsurance(Vehicle vehicle, BigDecimal basePrice) {
