@@ -23,7 +23,7 @@ public class MongoRespositoryConfig extends AbstractMongoConfiguration{
 	
 	@Override
 	protected String getDatabaseName() {
-		return "hackday-jake";
+		return "app16952573";
 	}
 
 	@Override
