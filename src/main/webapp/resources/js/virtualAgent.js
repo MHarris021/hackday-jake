@@ -35,11 +35,13 @@ microphone.onwebkitspeechchange = function(e){
 		if(this.utterance.indexOf("quote") > -1){
 			playSpeech("What would you like a quote for?");
 			$("#inputBox").val(this.utterance);
+			$("#output").html("What would you like a quote for?");
 		}
 		
 		if(this.utterance.indexOf("auto") > -1){
 			playSpeech("Can I get year, make and model please?");
 			$("#inputBox").val(this.utterance);
+			$("#output").html("Can I get year, make and model please?");
 		}
 		
 		if(this.utterance.indexOf("Ford") > -1){
@@ -57,20 +59,19 @@ microphone.onwebkitspeechchange = function(e){
 		if(this.utterance == "John Doe"){
 			playSpeech("Hi John, How can I help you").val(this.utterance);
 			$("#inputBox").val(this.utterance);
+			$("#output").html("Hi John, How can I help you");
 		}
-		
-		if(this.utterance.indexOf("Tim") > -1){
-			playSpeech("Hi Tim, How can I help you").val(this.utterance);
-			$("#inputBox").val(this.utterance);
-		}
+
 		
 		if(this.utterance.indexOf("policy") > -1){
 			playSpeech("let me get that information for you");
 			$("#inputBox").val(this.utterance);
+			$("#output").html("Let me gather that information for you");
 		}
 		if(this.utterance.indexOf("thank you") > -1){
 			playSpeech("No problem, just dont tell your wife.");
 			$("#inputBox").val(this.utterance);
+			$("#output").html("No problem, just dont tell your wife ;)");
 		}
 		
 		
