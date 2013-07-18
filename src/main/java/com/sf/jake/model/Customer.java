@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Document(collection="customers")
 public class Customer implements Coverable{
@@ -29,6 +30,7 @@ public class Customer implements Coverable{
 	@Indexed(unique=true)
 	private String accountName;
 	
+	@DateTimeFormat(pattern="MM-DD-YYYY")
 	private Date dateOfBirth;
 	private Gender gender;
 	private ContactInfo contactInfo;
