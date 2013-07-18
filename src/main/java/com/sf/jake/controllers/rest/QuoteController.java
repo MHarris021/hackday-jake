@@ -19,6 +19,7 @@ import com.sf.jake.model.CarInsurance;
 import com.sf.jake.model.CarInsuranceQuote;
 import com.sf.jake.model.Vehicle;
 import com.sf.jake.repositories.CarInsuranceRepository;
+import com.sf.jake.services.InsuranceQuoteService;
 
 @Controller
 @RequestMapping(value = "/quotes")
@@ -26,12 +27,15 @@ public class QuoteController {
 
 	@Resource
 	private CarInsuranceRepository carInsuranceRepository;
-	
+
 	@Resource
 	private List<CarInsuranceQuote> carInsuranceQuotes;
 
 	@Resource
 	private BaseModels baseModels;
+
+	@Resource
+	private InsuranceQuoteService insuranceQuoteService;
 
 	@RequestMapping(value = "/auto", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CarInsurance> getAutoQuotes(
@@ -39,10 +43,12 @@ public class QuoteController {
 		Vehicle vehicle = autoQouteRequest.getVehicle();
 		BaseCoverageOption baseCoverageOption = autoQouteRequest
 				.getBaseCoverageOption();
-		CarInsurance carInsurance = carInsuranceRepository
-				.findUniqueByVehicleYearAndVehicleMakeAndVehicleModelAndCoverageOption(
-						vehicle.getYear(), vehicle.getMake(),
-						vehicle.getModel(), baseCoverageOption);
+		List<CarInsurance> carInsurances = carInsuranceRepository
+				.findByVehicleMakeAndVehicleModel(vehicle.getMake(),
+						vehicle.getModel());
+
+		CarInsurance carInsurance = insuranceQuoteService.getQuote(
+				carInsurances, vehicle.getYear(), baseCoverageOption);
 
 		ResponseEntity<CarInsurance> responseEntity = new ResponseEntity<CarInsurance>(
 				carInsurance, HttpStatus.OK);
