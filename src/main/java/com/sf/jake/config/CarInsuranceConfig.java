@@ -69,7 +69,7 @@ public class CarInsuranceConfig {
 		List<CarInsurance> carInsurances = new ArrayList<CarInsurance>();
 		for(BaseCoverageOption coverageOption: coverageOptions){
 			CarInsurance carInsurance = new CarInsurance(vehicle2, yearIncrease);
-			carInsurance.setCoverageOption(coverageOption);
+			carInsurance.setBaseCoverageOption(coverageOption);
 			carInsurances.add(carInsurance);
 		}
 		return carInsurances;

@@ -22,15 +22,13 @@ public class CarInsurance implements InsuranceProduct {
 	private BigDecimal basePrice;
 	private BigDecimal premium;
 	
-	@Indexed
 	private Vehicle vehicle;
 
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
 
-	@Indexed
-	private CoverageOption coverageOption;
+	private BaseCoverageOption baseCoverageOption;
 
 	
 	public CarInsurance(Vehicle vehicle, BigDecimal basePrice) {
@@ -80,12 +78,12 @@ public class CarInsurance implements InsuranceProduct {
 		this.premium = premium;
 	}
 
-	public CoverageOption getCoverageOption() {
-		return coverageOption;
+	public BaseCoverageOption getBaseCoverageOption() {
+		return baseCoverageOption;
 	}
 
-	public void setCoverageOption(CoverageOption coverageOption) {
-		this.coverageOption = coverageOption;
+	public void setBaseCoverageOption(BaseCoverageOption coverageOption) {
+		this.baseCoverageOption = coverageOption;
 	}
 
 }

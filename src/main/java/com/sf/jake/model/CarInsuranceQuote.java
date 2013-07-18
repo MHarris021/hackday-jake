@@ -29,7 +29,7 @@ public class CarInsuranceQuote extends BaseInsuranceQuote {
 	protected BigDecimal calculatePremium() {
 		CarInsurance carInsurance = (CarInsurance) getInsuranceProduct();
 		BigDecimal premium = carInsurance.getBasePrice();
-		premium = premium.add(carInsurance.getCoverageOption().getCost());
+		premium = premium.add(carInsurance.getBaseCoverageOption().getCost());
 		carInsurance.setPremium(premium);
 		return premium;
 	}

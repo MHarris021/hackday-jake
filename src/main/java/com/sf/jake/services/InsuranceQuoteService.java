@@ -28,7 +28,7 @@ public class InsuranceQuoteService {
 		CarInsurance result = null;
 		for (CarInsurance carInsurance : carInsurances) {
 			if (carInsurance.getVehicle().getYear() == year) {
-				if (carInsurance.getCoverageOption().getName()
+				if (carInsurance.getBaseCoverageOption().getName()
 						.equalsIgnoreCase(coverageOption));
 					result = carInsurance;
 				break;

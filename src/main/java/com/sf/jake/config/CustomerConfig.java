@@ -55,7 +55,7 @@ public class CustomerConfig {
 	@Bean
 	public Product carInsurance() {
 		CarInsurance carInsurance = new CarInsurance(vehicle(), BigDecimal.valueOf(500));
-		carInsurance.setCoverageOption(new BaseCoverageOption("No Option", BigDecimal.ZERO));
+		carInsurance.setBaseCoverageOption(new BaseCoverageOption("No Option", BigDecimal.ZERO));
 		carInsurance.setPremium(BigDecimal.valueOf(500));
 		return carInsurance;
 	}
