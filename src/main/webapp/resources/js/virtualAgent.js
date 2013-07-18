@@ -12,7 +12,6 @@ function setup() {
 	microphone.onfocus = microphone.blur;
 	microphone.onwebkitspeechchange = function(e) {
 		console.log(e);
-		// alert($("#microphone").val());
 		$("#inputBox").val("");
 
 		var responses = e.results;
