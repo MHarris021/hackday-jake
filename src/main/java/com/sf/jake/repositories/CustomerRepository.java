@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.sf.jake.model.Customer;
 
-@Repository(value="customerRepository")
+//@Repository(value="customerRepository")
 public interface CustomerRepository extends CrudRepository<Customer, BigInteger> {
 
 	@Query

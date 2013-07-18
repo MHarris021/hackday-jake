@@ -18,7 +18,7 @@ import com.sf.jake.model.Vehicle;
 import com.sf.jake.repositories.CarInsuranceRepository;
 import com.sf.jake.services.InsuranceQuoteService;
 
-@Controller
+//@Controller
 @RequestMapping(value = "/quotes")
 public class QuoteController {
 

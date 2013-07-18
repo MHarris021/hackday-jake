@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.sf.jake.model.Customer;
 import com.sf.jake.repositories.CustomerRepository;
 
-@Service
+//@Service
 public class CustomerService {
 
 	@Resource(name="customerRepository")

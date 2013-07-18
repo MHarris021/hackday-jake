@@ -12,8 +12,8 @@ import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 
-@Configuration
-@EnableMongoRepositories(basePackages="com.sf.jake.repositories")
+//@Configuration
+//@EnableMongoRepositories(basePackages="com.sf.jake.repositories")
 public class MongoRespositoryConfig extends AbstractMongoConfiguration{
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(MongoRespositoryConfig.class); 

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.sf.jake.model.BaseCoverageOption;
 
-@Configuration
+//@Configuration
 public class CoverageOptionConfig {
 
 	@Bean

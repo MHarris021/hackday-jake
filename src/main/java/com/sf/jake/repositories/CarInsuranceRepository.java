@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.sf.jake.model.CarInsurance;
 
-@Repository
+//@Repository
 public interface CarInsuranceRepository extends
 		CrudRepository<CarInsurance, BigInteger> {
 

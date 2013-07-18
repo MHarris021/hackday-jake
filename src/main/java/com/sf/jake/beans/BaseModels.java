@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.sf.jake.model.Vehicle;
 
-@Component
+//@Component
 public class BaseModels {
 	
 	@Resource
