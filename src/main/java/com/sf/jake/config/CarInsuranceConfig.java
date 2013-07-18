@@ -81,7 +81,7 @@ public class CarInsuranceConfig {
 		for (int i = 0; i <= yearDifference; i++) {
 			Vehicle vehicle2 = new Vehicle();
 			vehicle2.copy(vehicle);
-			vehicle2.setYear(baseYear.plusYears(i));
+			vehicle2.setYear(baseYear.plusYears(i).toDate());
 			vehicles.add(vehicle2);
 		}
 		return vehicles;

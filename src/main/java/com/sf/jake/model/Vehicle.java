@@ -1,7 +1,8 @@
 package com.sf.jake.model;
 
+import java.util.Date;
+
 import org.apache.commons.lang3.StringUtils;
-import org.joda.time.DateTime;
 
 
 public class Vehicle implements Coverable {
@@ -13,12 +14,12 @@ public class Vehicle implements Coverable {
 
 	private String make;
 	private String model;
-	private DateTime year;
+	private Date year;
 	
 	public Vehicle() {
 	}
 	
-	public Vehicle(DateTime year, String make, String model) {
+	public Vehicle(Date year, String make, String model) {
 		setYear(year);
 		setMake(make);
 		setModel(model);
@@ -42,12 +43,12 @@ public class Vehicle implements Coverable {
 		this.model = model;
 	}
 
-	public DateTime getYear() {
+	public Date getYear() {
 		return year;
 	}
 
-	public void setYear(DateTime year) {
-		this.year = year;
+	public void setYear(Date year2) {
+		this.year = year2;
 	}
 
 	@Override

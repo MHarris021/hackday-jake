@@ -2,6 +2,7 @@ package com.sf.jake.config;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,9 +16,10 @@ import com.sf.jake.model.Vehicle;
 @Configuration
 public class VehicleConfig {
 
+	@SuppressWarnings("deprecation")
 	@Bean
-	public DateTime defaultYear() {
-		return new DateTime(2000, 1, 1, 0, 0, 0, 0);
+	public Date defaultYear() {
+		return new Date(2000, 1, 1);
 	}
 	
 	@Bean
@@ -72,7 +74,7 @@ public class VehicleConfig {
 	public Map<Vehicle, DateTime> baseModelsMap() {
 		Map<Vehicle, DateTime> map = new HashMap<Vehicle, DateTime>();
 		for(Vehicle vehicle : initialModels()){
-			map.put(vehicle, vehicle.getYear());
+			map.put(vehicle, new DateTime(vehicle.getYear()));
 		}
 		return map;
 	}
