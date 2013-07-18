@@ -11,12 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sf.jake.beans.BaseModels;
 import com.sf.jake.model.AutoQuoteRequest;
 import com.sf.jake.model.BaseCoverageOption;
 import com.sf.jake.model.CarInsurance;
-import com.sf.jake.model.CarInsuranceQuote;
 import com.sf.jake.model.Vehicle;
 import com.sf.jake.repositories.CarInsuranceRepository;
 import com.sf.jake.services.InsuranceQuoteService;
@@ -33,6 +33,17 @@ public class QuoteController {
 
 	@Resource
 	private InsuranceQuoteService insuranceQuoteService;
+
+	@RequestMapping(value = "/auto", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, params = {
+			"make", "model" })
+	public ResponseEntity<List<CarInsurance>> getAllAuto(
+			@RequestParam String make, @RequestParam String model) {
+		List<CarInsurance> carInsurances = carInsuranceRepository
+				.findByVehicleMakeAndVehicleModel(make, model);
+		ResponseEntity<List<CarInsurance>> responseEntity = new ResponseEntity<List<CarInsurance>>(
+				carInsurances, HttpStatus.OK);
+		return responseEntity;
+	}
 
 	@RequestMapping(value = "/auto", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CarInsurance> getAutoQuotes(
