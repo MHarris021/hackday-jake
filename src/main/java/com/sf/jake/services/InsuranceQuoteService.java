@@ -8,7 +8,7 @@ import com.sf.jake.model.CarInsurance;
 import com.sf.jake.model.CarInsuranceQuote;
 import com.sf.jake.repositories.CarInsuranceRepository;
 
-@Service
+//@Service
 public class InsuranceQuoteService {
 
 	@Resource

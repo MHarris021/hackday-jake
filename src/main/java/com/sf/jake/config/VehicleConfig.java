@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.sf.jake.model.Vehicle;
 
-@Configuration
+//@Configuration
 public class VehicleConfig {
 
 	@Bean

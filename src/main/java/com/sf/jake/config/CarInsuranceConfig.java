@@ -18,7 +18,7 @@ import com.sf.jake.model.CarInsurance;
 import com.sf.jake.model.Vehicle;
 import com.sf.jake.services.InsuranceQuoteService;
 
-@Configuration
+//@Configuration
 public class CarInsuranceConfig {
 
 	@Resource
