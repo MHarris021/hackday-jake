@@ -5,7 +5,11 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection="customers")
 public class Customer implements Coverable{
 
 	/**
@@ -13,16 +17,26 @@ public class Customer implements Coverable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private BigInteger id;
+	
+	@Indexed
 	private String firstName;
+	
+	@Indexed
 	private String lastName;
+	
+	@Indexed(unique=true)
+	private String accountName;
+	
 	private DateTime dateOfBirth;
 	private Gender gender;
 	private ContactInfo contactInfo;
 
 	private List<Product> products;
 	
-	public Customer() {
+	public Customer(String accountName) {
+		this.accountName = accountName;
 	}
 	
 	public BigInteger getId() {
@@ -43,6 +57,12 @@ public class Customer implements Coverable{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
+	
+	public String getAccountName() {
+		return accountName;
+	}
+
 	public DateTime getDateOfBirth() {
 		return dateOfBirth;
 	}

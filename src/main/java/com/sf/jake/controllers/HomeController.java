@@ -1,4 +1,4 @@
-package com.sf.jake;
+package com.sf.jake.controllers;
 
 import java.text.DateFormat;
 import java.util.Date;
