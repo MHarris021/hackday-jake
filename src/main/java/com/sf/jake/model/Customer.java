@@ -96,5 +96,13 @@ public class Customer implements Coverable{
 	public String getName() {
 		return StringUtils.join(getFirstName(), " ", getLastName());
 	}
+
+	public void copy(Customer customer) {
+		setFirstName(customer.getFirstName());
+		setLastName(customer.getLastName());
+		setContactInfo(customer.getContactInfo());
+		setDateOfBirth(customer.getDateOfBirth());
+		setGender(customer.getGender());
+	}
 	
 }

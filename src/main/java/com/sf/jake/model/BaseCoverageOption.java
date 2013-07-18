@@ -12,9 +12,9 @@ public class BaseCoverageOption implements CoverageOption {
 	private String name;
 	private BigDecimal cost;
 	
-	public BaseCoverageOption(String name, BigDecimal multiplier) {
+	public BaseCoverageOption(String name, BigDecimal cost) {
 		setName(name);
-		setCost(multiplier);
+		setCost(cost);
 	}
 	
 	@Override

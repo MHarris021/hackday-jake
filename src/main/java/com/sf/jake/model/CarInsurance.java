@@ -18,13 +18,12 @@ public class CarInsurance implements InsuranceProduct {
 	@Id
 	private BigInteger id;
 	
-	private BigInteger productId;
 	private String name;
 	private BigDecimal basePrice;
 	private BigDecimal premium;
 	private String policyNumber;
 	private List<Vehicle> vehicles;
-	private List<CoverageOption> coverageOptions;
+	private CoverageOption coverageOption;
 	
 	public CarInsurance() {
 	}
@@ -42,13 +41,7 @@ public class CarInsurance implements InsuranceProduct {
 		this.id = id;
 	}
 
-	public BigInteger getProductId() {
-		return productId;
-	}
-
-	public void setProductId(BigInteger productId) {
-		this.productId = productId;
-	}
+	
 
 	public String getName() {
 		return name;
@@ -60,9 +53,7 @@ public class CarInsurance implements InsuranceProduct {
 
 	public BigDecimal getPrice() {
 		BigDecimal totalPrice = basePrice;
-		for(CoverageOption coverageOption: coverageOptions){
-			totalPrice.add(coverageOption.getCost());
-		}
+		totalPrice.add(coverageOption.getCost());
 		return totalPrice;
 	}
 
@@ -94,12 +85,12 @@ public class CarInsurance implements InsuranceProduct {
 		this.vehicles = vehicles;
 	}
 
-	public List<CoverageOption> getCoverageOptions() {
-		return coverageOptions;
+	public CoverageOption getCoverageOption() {
+		return coverageOption;
 	}
 
-	public void setCoverageOptions(List<CoverageOption> coverageOptions) {
-		this.coverageOptions = coverageOptions;
+	public void setCoverageOption(CoverageOption coverageOption) {
+		this.coverageOption = coverageOption;
 	}
 
 	

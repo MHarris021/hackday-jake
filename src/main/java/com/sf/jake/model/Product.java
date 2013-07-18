@@ -7,7 +7,6 @@ import java.math.BigInteger;
 public interface Product extends Serializable {
 	
 	BigInteger getId();
-	BigInteger getProductId();
 	String getName();
 	BigDecimal getPrice();
 
