@@ -2,37 +2,50 @@ package com.sf.jake.model;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="autoinsurances")
+@Document(collection = "autoinsurances")
 public class CarInsurance implements InsuranceProduct {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	private BigInteger id;
-	
-	private String name;
+
+	private String name = "Auto Insurance";
 	private BigDecimal basePrice;
 	private BigDecimal premium;
 	private String policyNumber;
-	private List<Vehicle> vehicles;
+	
+	@Indexed
+	private Vehicle vehicle;
+
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
+	}
+
 	private CoverageOption coverageOption;
+
+	public CarInsurance(Vehicle vehicle, BigDecimal basePrice) {
+		setVehicle(vehicle);
+		setBasePrice(basePrice);
+	}
 	
 	public CarInsurance() {
 	}
-	
+
 	@Override
-	public List<Vehicle> getCovered() {
-		return vehicles;
+	public Vehicle getCovered() {
+		return vehicle;
 	}
 
+	@Override
 	public BigInteger getId() {
 		return id;
 	}
@@ -41,8 +54,7 @@ public class CarInsurance implements InsuranceProduct {
 		this.id = id;
 	}
 
-	
-
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -51,16 +63,15 @@ public class CarInsurance implements InsuranceProduct {
 		this.name = name;
 	}
 
-	public BigDecimal getPrice() {
-		BigDecimal totalPrice = basePrice;
-		totalPrice.add(coverageOption.getCost());
-		return totalPrice;
+	public BigDecimal getBasePrice() {
+		return basePrice;
 	}
 
 	public void setBasePrice(BigDecimal price) {
 		this.basePrice = price;
 	}
 
+	@Override
 	public BigDecimal getPremium() {
 		return premium;
 	}
@@ -69,20 +80,13 @@ public class CarInsurance implements InsuranceProduct {
 		this.premium = premium;
 	}
 
+	@Override
 	public String getPolicyNumber() {
 		return policyNumber;
 	}
 
 	public void setPolicyNumber(String policyNumber) {
 		this.policyNumber = policyNumber;
-	}
-
-	public List<Vehicle> getVehicles() {
-		return vehicles;
-	}
-
-	public void setVehicles(List<Vehicle> vehicles) {
-		this.vehicles = vehicles;
 	}
 
 	public CoverageOption getCoverageOption() {
@@ -92,7 +96,5 @@ public class CarInsurance implements InsuranceProduct {
 	public void setCoverageOption(CoverageOption coverageOption) {
 		this.coverageOption = coverageOption;
 	}
-
-	
 
 }

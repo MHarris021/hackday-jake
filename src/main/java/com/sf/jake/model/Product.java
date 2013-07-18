@@ -8,6 +8,6 @@ public interface Product extends Serializable {
 	
 	BigInteger getId();
 	String getName();
-	BigDecimal getPrice();
+	BigDecimal getPremium();
 
 }
