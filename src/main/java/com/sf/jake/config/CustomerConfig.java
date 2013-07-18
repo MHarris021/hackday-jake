@@ -6,7 +6,6 @@ import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
-import org.joda.time.DateTime;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

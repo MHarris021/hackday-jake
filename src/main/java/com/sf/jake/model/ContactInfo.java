@@ -1,36 +1,40 @@
 package com.sf.jake.model;
 
-import java.util.List;
 
 public class ContactInfo {
-	private List<Address> addresses;
-	private List<Phone> phones;
-	private List<Email> emails;
+	private Address address;
+	private Phone phone;
+	private Email email;
 
-	public ContactInfo() {
+	public ContactInfo(Address address, Phone phone, Email email) {
+		setAddress(address);
+		setPhone(phone);
+		setEmail(email);
 	}
 
-	public List<Address> getAddresses() {
-		return addresses;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAddresses(List<Address> addresses) {
-		this.addresses = addresses;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
-	public List<Phone> getPhones() {
-		return phones;
+	public Phone getPhone() {
+		return phone;
 	}
 
-	public void setPhones(List<Phone> phones) {
-		this.phones = phones;
+	public void setPhone(Phone phone) {
+		this.phone = phone;
 	}
 
-	public List<Email> getEmails() {
-		return emails;
+	public Email getEmail() {
+		return email;
 	}
 
-	public void setEmails(List<Email> emails) {
-		this.emails = emails;
+	public void setEmail(Email email) {
+		this.email = email;
 	}
+
+	
 }

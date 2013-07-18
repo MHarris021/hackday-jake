@@ -87,7 +87,7 @@ function playSpeech(input) {
 
 
 	var speechArray = speechToTalk.split(" ");
-	var outputQuery = ""
+	var outputQuery = "";
 	$(speechArray).each(function() {
 		outputQuery += this + "%20";
 	});
