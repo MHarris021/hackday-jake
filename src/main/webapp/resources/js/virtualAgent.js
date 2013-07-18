@@ -68,6 +68,13 @@ microphone.onwebkitspeechchange = function(e){
 			playSpeech("let me get that information for you");
 			$("#inputBox").val(this.utterance);
 		}
+		if(this.utterance.indexOf("thank you") > -1){
+			playSpeech("No problem, just dont tell your wife.");
+			$("#inputBox").val(this.utterance);
+		}
+		
+		
+		
 	});
 	
 	
