@@ -20,7 +20,7 @@ import com.sf.jake.model.Phone;
 import com.sf.jake.model.Product;
 import com.sf.jake.model.Vehicle;
 
-@Configuration
+//@Configuration
 public class CustomerConfig {
 
 	@Bean(name="johnDoe")

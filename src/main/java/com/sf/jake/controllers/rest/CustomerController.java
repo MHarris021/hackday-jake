@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.sf.jake.model.Customer;
 import com.sf.jake.services.CustomerService;
 
-@Controller
+//@Controller
 @RequestMapping(value = "/customers", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CustomerController {
 
