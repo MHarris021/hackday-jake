@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="autoinsurances")
 public class CarInsurance implements InsuranceProduct {
 
 	/**
@@ -11,7 +15,9 @@ public class CarInsurance implements InsuranceProduct {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private BigInteger id;
+	
 	private BigInteger productId;
 	private String name;
 	private BigDecimal basePrice;
