@@ -8,13 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sf.jake.beans.BaseModels;
-import com.sf.jake.model.AutoQuoteRequest;
 import com.sf.jake.model.BaseCoverageOption;
 import com.sf.jake.model.CarInsurance;
 import com.sf.jake.model.Vehicle;
@@ -45,12 +43,14 @@ public class QuoteController {
 		return responseEntity;
 	}
 
-	@RequestMapping(value = "/auto", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/auto", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, params = {
+			"year", "make", "model", "coverageOption" })
 	public ResponseEntity<CarInsurance> getAutoQuotes(
-			@RequestBody AutoQuoteRequest autoQouteRequest) {
-		Vehicle vehicle = autoQouteRequest.getVehicle();
-		BaseCoverageOption baseCoverageOption = autoQouteRequest
-				.getBaseCoverageOption();
+			@RequestParam Integer year, @RequestParam String make,
+			@RequestParam String model, @RequestParam String coverageOption) {
+		Vehicle vehicle = new Vehicle(year, make, model);
+		BaseCoverageOption baseCoverageOption = new BaseCoverageOption(
+				coverageOption, null);
 		List<CarInsurance> carInsurances = carInsuranceRepository
 				.findByVehicleMakeAndVehicleModel(vehicle.getMake(),
 						vehicle.getModel());
