@@ -20,8 +20,8 @@ public interface CarInsuranceRepository extends
 
 	@Query
 	CarInsurance findUniqueByVehicleYearAndVehicleMakeAndVehicleModelAndCoverageOption(
-			Date date, String make, String model,
-			BaseCoverageOption baseCoverageOption);
+			Date year, String make, String model,
+			BaseCoverageOption coverageOption);
 
 	
 
