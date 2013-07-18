@@ -1,7 +1,5 @@
 package com.sf.jake.services;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -23,17 +21,5 @@ public class InsuranceQuoteService {
 		return carInsuranceQuote;
 	}
 
-	public CarInsurance getQuote(List<CarInsurance> carInsurances, int year,
-			String coverageOption) {
-		CarInsurance result = null;
-		for (CarInsurance carInsurance : carInsurances) {
-			if (carInsurance.getVehicle().getYear() == year) {
-				if (carInsurance.getBaseCoverageOption().getName()
-						.equalsIgnoreCase(coverageOption));
-					result = carInsurance;
-				break;
-			}
-		}
-		return result;
-	}
+	
 }

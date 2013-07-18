@@ -52,12 +52,26 @@ public class QuoteController {
 				.findByVehicleMakeAndVehicleModel(vehicle.getMake(),
 						vehicle.getModel());
 
-		CarInsurance carInsurance = insuranceQuoteService.getQuote(
+		CarInsurance carInsurance = getQuote(
 				carInsurances, vehicle.getYear(), coverageOption);
 
 		ResponseEntity<CarInsurance> responseEntity = new ResponseEntity<CarInsurance>(
 				carInsurance, HttpStatus.OK);
 		return responseEntity;
+	}
+	
+	public CarInsurance getQuote(List<CarInsurance> carInsurances, int year,
+			String coverageOption) {
+		CarInsurance result = null;
+		for (CarInsurance carInsurance : carInsurances) {
+			if (carInsurance.getVehicle().getYear() == year) {
+				if (carInsurance.getBaseCoverageOption().getName()
+						.equalsIgnoreCase(coverageOption));
+					result = carInsurance;
+				break;
+			}
+		}
+		return result;
 	}
 
 }
