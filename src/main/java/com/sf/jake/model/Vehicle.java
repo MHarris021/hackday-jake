@@ -1,9 +1,8 @@
 package com.sf.jake.model;
 
-import java.math.BigInteger;
-
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
+
 
 public class Vehicle implements Coverable {
 
@@ -12,7 +11,6 @@ public class Vehicle implements Coverable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private BigInteger id;
 	private String make;
 	private String model;
 	private DateTime year;
@@ -27,14 +25,6 @@ public class Vehicle implements Coverable {
 	}
 	
 	
-
-	public BigInteger getId() {
-		return id;
-	}
-
-	public void setId(BigInteger id) {
-		this.id = id;
-	}
 
 	public String getMake() {
 		return make;
