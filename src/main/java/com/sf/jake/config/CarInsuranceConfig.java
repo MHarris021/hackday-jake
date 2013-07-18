@@ -76,7 +76,7 @@ public class CarInsuranceConfig {
 	}
 
 	private int calcYearDifference(Vehicle vehicle2, Vehicle vehicle) {
-		return vehicle2.getYear().getYear() - vehicle.getYear().getYear();
+		return vehicle2.getYear() - vehicle.getYear();
 	}
 
 	private List<Vehicle> generateVehiclesToNow(Vehicle vehicle) {
@@ -86,7 +86,7 @@ public class CarInsuranceConfig {
 		for (int i = 0; i <= yearDifference; i++) {
 			Vehicle vehicle2 = new Vehicle();
 			vehicle2.copy(vehicle);
-			vehicle2.setYear(baseYear.plusYears(i).toDate());
+			vehicle2.setYear(baseYear.plusYears(i).getYear());
 			vehicles.add(vehicle2);
 		}
 		return vehicles;

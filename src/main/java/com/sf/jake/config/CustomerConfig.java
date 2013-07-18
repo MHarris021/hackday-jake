@@ -61,7 +61,7 @@ public class CustomerConfig {
 	}
 
 	private Vehicle vehicle() {
-		Vehicle vehicle = new Vehicle(Calendar.getInstance().getTime(), "Ford", "Explorer");
+		Vehicle vehicle = new Vehicle(2013, "Ford", "Explorer");
 		return vehicle;
 	}
 

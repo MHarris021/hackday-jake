@@ -1,6 +1,5 @@
 package com.sf.jake.services;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -26,11 +25,11 @@ public class InsuranceQuoteService {
 	}
 
 
-	public CarInsurance getQuote(List<CarInsurance> carInsurances, Date year,
+	public CarInsurance getQuote(List<CarInsurance> carInsurances, int year,
 			BaseCoverageOption baseCoverageOption) {
 		CarInsurance result = null;
 		for(CarInsurance carInsurance: carInsurances){
-			if(carInsurance.getVehicle().getYear().equals(year)){
+			if(carInsurance.getVehicle().getYear()==year){
 				if(carInsurance.getCoverageOption().getName().equals(baseCoverageOption.getName()))
 					result = carInsurance;
 				break;

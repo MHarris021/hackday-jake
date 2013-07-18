@@ -1,7 +1,5 @@
 package com.sf.jake.model;
 
-import java.util.Date;
-
 import org.apache.commons.lang3.StringUtils;
 
 
@@ -14,12 +12,12 @@ public class Vehicle implements Coverable {
 
 	private String make;
 	private String model;
-	private Date year;
+	private int year;
 	
 	public Vehicle() {
 	}
 	
-	public Vehicle(Date year, String make, String model) {
+	public Vehicle(int year, String make, String model) {
 		setYear(year);
 		setMake(make);
 		setModel(model);
@@ -43,18 +41,18 @@ public class Vehicle implements Coverable {
 		this.model = model;
 	}
 
-	public Date getYear() {
+	public int getYear() {
 		return year;
 	}
 
-	public void setYear(Date year2) {
+	public void setYear(int year2) {
 		this.year = year2;
 	}
 
 	@Override
 	public String getName() {
 		StringBuffer buffer = new StringBuffer(StringUtils
-				.join(Integer.toString(year.getYear()), " ", getMake(), " ", getModel()));
+				.join(Integer.toString(getYear()), " ", getMake(), " ", getModel()));
 		return buffer.toString();
 	}
 	
@@ -64,7 +62,6 @@ public class Vehicle implements Coverable {
 		setModel(vehicle.getModel());
 	}
 
-	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -74,7 +71,7 @@ public class Vehicle implements Coverable {
 		int result = 1;
 		result = prime * result + ((make == null) ? 0 : make.hashCode());
 		result = prime * result + ((model == null) ? 0 : model.hashCode());
-		result = prime * result + ((year == null) ? 0 : year.hashCode());
+		result = prime * result + year;
 		return result;
 	}
 
@@ -107,15 +104,12 @@ public class Vehicle implements Coverable {
 		} else if (!model.equals(other.model)) {
 			return false;
 		}
-		if (year == null) {
-			if (other.year != null) {
-				return false;
-			}
-		} else if (!year.equals(other.year)) {
+		if (year != other.year) {
 			return false;
 		}
 		return true;
 	}
 
-
+	
+	
 }

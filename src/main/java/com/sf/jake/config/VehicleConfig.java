@@ -2,7 +2,6 @@ package com.sf.jake.config;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,10 +15,9 @@ import com.sf.jake.model.Vehicle;
 @Configuration
 public class VehicleConfig {
 
-	@SuppressWarnings("deprecation")
 	@Bean
-	public Date defaultYear() {
-		return new Date(2000, 1, 1);
+	public int defaultYear() {
+		return 2000;
 	}
 	
 	@Bean
