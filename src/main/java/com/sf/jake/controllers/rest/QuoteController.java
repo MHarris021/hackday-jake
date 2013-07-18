@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sf.jake.beans.BaseModels;
-import com.sf.jake.model.BaseCoverageOption;
 import com.sf.jake.model.CarInsurance;
 import com.sf.jake.model.Vehicle;
 import com.sf.jake.repositories.CarInsuranceRepository;
@@ -49,14 +48,12 @@ public class QuoteController {
 			@RequestParam Integer year, @RequestParam String make,
 			@RequestParam String model, @RequestParam String coverageOption) {
 		Vehicle vehicle = new Vehicle(year, make, model);
-		BaseCoverageOption baseCoverageOption = new BaseCoverageOption(
-				coverageOption, null);
 		List<CarInsurance> carInsurances = carInsuranceRepository
 				.findByVehicleMakeAndVehicleModel(vehicle.getMake(),
 						vehicle.getModel());
 
 		CarInsurance carInsurance = insuranceQuoteService.getQuote(
-				carInsurances, vehicle.getYear(), baseCoverageOption);
+				carInsurances, vehicle.getYear(), coverageOption);
 
 		ResponseEntity<CarInsurance> responseEntity = new ResponseEntity<CarInsurance>(
 				carInsurance, HttpStatus.OK);
