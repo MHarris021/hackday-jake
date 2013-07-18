@@ -1,6 +1,7 @@
 package com.sf.jake.model;
 
 import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -29,7 +30,7 @@ public class Customer implements Coverable{
 	@Indexed(unique=true)
 	private String accountName;
 	
-	private DateTime dateOfBirth;
+	private Date dateOfBirth;
 	private Gender gender;
 	private ContactInfo contactInfo;
 
@@ -63,10 +64,10 @@ public class Customer implements Coverable{
 		return accountName;
 	}
 
-	public DateTime getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(DateTime dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	public Gender getGender() {

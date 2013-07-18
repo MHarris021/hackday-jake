@@ -1,5 +1,8 @@
 package com.sf.jake.config;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
@@ -22,8 +25,10 @@ public class CustomerConfig {
 		Customer customer = new Customer("Doe-1");
 		customer.setFirstName("John");
 		customer.setLastName("Doe");
-		customer.setGender(Gender.Male);;
-		customer.setDateOfBirth(new DateTime(1981, 8, 27, 8, 7));
+		customer.setGender(Gender.Male);
+		Date dateOfBirth = Calendar.getInstance().getTime();
+
+		customer.setDateOfBirth(dateOfBirth);
 		return customer;
 	}
 	

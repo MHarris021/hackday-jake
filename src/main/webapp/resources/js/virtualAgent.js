@@ -82,9 +82,9 @@ microphone.onwebkitspeechchange = function(e) {
 
 function playSpeech(input) {
 	console.log(input);
-	var translateURL = "http://translate.google.com/translate_tts?tl=en&ie=UTF-8&q="
+	var translateURL = "http://translate.google.com/translate_tts?tl=en&ie=UTF-8&q=";
 	var speechToTalk = input.toString();
-	;
+
 
 	var speechArray = speechToTalk.split(" ");
 	var outputQuery = ""
