@@ -1,5 +1,7 @@
 package com.sf.jake.controllers.rest;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,7 @@ import com.sf.jake.beans.BaseModels;
 import com.sf.jake.model.AutoQuoteRequest;
 import com.sf.jake.model.BaseCoverageOption;
 import com.sf.jake.model.CarInsurance;
+import com.sf.jake.model.CarInsuranceQuote;
 import com.sf.jake.model.Vehicle;
 import com.sf.jake.repositories.CarInsuranceRepository;
 
@@ -23,6 +26,9 @@ public class QuoteController {
 
 	@Resource
 	private CarInsuranceRepository carInsuranceRepository;
+	
+	@Resource
+	private List<CarInsuranceQuote> carInsuranceQuotes;
 
 	@Resource
 	private BaseModels baseModels;
