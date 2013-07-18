@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 import com.sf.jake.model.Address;
 import com.sf.jake.model.ContactInfo;
@@ -22,6 +23,7 @@ import com.sf.jake.repositories.CarInsuranceRepository;
 import com.sf.jake.services.CustomerService;
 
 @Configuration
+@Lazy
 public class CustomerConfig {
 
 	@Resource
