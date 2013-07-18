@@ -1,0 +1,30 @@
+#microphone {
+	font-size: 25px;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	border: none;
+	margin-left: 5px;
+	outline: none;
+	background: transparent;
+}
+
+#main{
+	position: absolute;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 5%;
+	margin-top: 5%;
+	text-align: center;
+	border-style: solid;
+	border-width: thin;
+	border-color: black;
+	background-color: red; 
+}
+
+.uiArea {
+	border-style: groove;
+	border-width: thin;
+	border-color: appworkspace;
+}
+ 

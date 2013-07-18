@@ -1,8 +1,9 @@
 $(document)
 		.ready(
 				function() {
-					playSpeech("Thanks for visiting State Farm virtual agent, What is your name ");
 					setup();
+					playSpeech("Thanks for visiting State Farm virtual agent, What is your name ");
+					
 				});
 
 function setup() {

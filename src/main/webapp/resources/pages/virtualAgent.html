@@ -5,33 +5,23 @@
 <script src="/resources/js/jquery.js" type="text/javascript"></script>
 <script src="/resources/js/virtualAgent.js" type="text/javascript"></script>
 
-<style>
-#microphone {
-	font-size: 25px;
-	width: 25px;
-	height: 25px;
-	cursor: pointer;
-	border: none;
-	margin-left: 5px;
-	outline: none;
-	background: transparent;
-}
-</style>
+<link href="/resources/css/main.css" type="text/css"></link>
 
 
 </head>
 <body>
-	<input type="text" id="inputBox"></input>
-	<input x-webkit-speech id="microphone">
+	<div id="main">
+	<img alt="Jake from State Farm" src="/resources/images/jake.jpg"></img>
+		<div id="inputArea" class="uiArea">
+			<input type="text" id="inputBox"></input> <input x-webkit-speech
+				id="microphone">
+		</div>
+		<div id="outputArea" class="uiArea" hidden="true">
+			<div id="output"></div>
+		</div>
 
-	<div>
-		<span id="firstName"></span>
-
-		<div id="output"></div>
-
+		<iframe id="audioiFrame" style="display: none;" src=""> </iframe>
 	</div>
-
-	<iframe id="audioiFrame" style="display: none;" src=""> </iframe>
 </body>
 
 </html>
