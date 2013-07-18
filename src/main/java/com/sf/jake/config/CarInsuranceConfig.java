@@ -45,7 +45,7 @@ public class CarInsuranceConfig {
 			BigDecimal replacementCost = replacementCosts
 					.getBaseReplacementCost(vehicle);
 			BigDecimal basePrice = replacementCost.multiply(BigDecimal
-					.valueOf(0.01));
+					.valueOf(0.10));
 			for (Vehicle vehicle2 : vehiclesToNow) {
 				int yearDifference = calcYearDifference(vehicle2, vehicle);
 				BigDecimal yearIncrease = basePrice.multiply(BigDecimal
