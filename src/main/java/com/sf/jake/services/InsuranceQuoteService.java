@@ -16,13 +16,7 @@ public class InsuranceQuoteService {
 	@Resource
 	private CarInsuranceRepository carInsuranceRepository;
 
-	public CarInsuranceQuote getQuote(Vehicle vehicle, DateTime baseYear) {
-		CarInsurance carInsurance = carInsuranceRepository
-				.findByVehicle(vehicle);
-		CarInsuranceQuote quote = new CarInsuranceQuote(carInsurance, baseYear);
-		return quote;
-	}
-
+	
 	public CarInsuranceQuote generateQuote(CarInsurance carInsurance) {
 		CarInsuranceQuote carInsuranceQuote = new CarInsuranceQuote(carInsurance);
 		carInsuranceRepository.save(carInsurance);

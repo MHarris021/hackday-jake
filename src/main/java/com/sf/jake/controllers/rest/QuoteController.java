@@ -23,13 +23,13 @@ public class QuoteController {
 	@Resource
 	private BaseModels baseModels;
 	
-	@RequestMapping(value="/auto")
-	public ResponseEntity<CarInsuranceQuote> getAutoQuote(@RequestBody Vehicle vehicle) {
-		DateTime baseYear = baseModels.getBaseYear(vehicle);
-		CarInsuranceQuote insuranceQuote = insuranceQuoteService.getQuote(vehicle, baseYear);
-		ResponseEntity<CarInsuranceQuote> responseEntity = new ResponseEntity<CarInsuranceQuote>(
-				insuranceQuote, HttpStatus.OK);
-		return responseEntity;
-	}
+//	@RequestMapping(value="/auto")
+//	public ResponseEntity<CarInsuranceQuote> getAutoQuote(@RequestBody Vehicle vehicle) {
+//		DateTime baseYear = baseModels.getBaseYear(vehicle);
+//		CarInsuranceQuote insuranceQuote = insuranceQuoteService.getQuote(vehicle, baseYear);
+//		ResponseEntity<CarInsuranceQuote> responseEntity = new ResponseEntity<CarInsuranceQuote>(
+//				insuranceQuote, HttpStatus.OK);
+//		return responseEntity;
+//	}
 
 }

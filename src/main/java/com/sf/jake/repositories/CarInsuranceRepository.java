@@ -1,6 +1,7 @@
 package com.sf.jake.repositories;
 
 import java.math.BigInteger;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -14,6 +15,6 @@ public interface CarInsuranceRepository extends
 		CrudRepository<CarInsurance, BigInteger> {
 
 	@Query
-	CarInsurance findByVehicle(Vehicle vehicle);
+	List<CarInsurance> findByVehicle(Vehicle vehicle);
 
 }
