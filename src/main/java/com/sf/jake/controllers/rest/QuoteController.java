@@ -18,6 +18,7 @@ import com.sf.jake.services.InsuranceQuoteService;
 @RequestMapping(value = "/quotes")
 public class QuoteController {
 	
+	@Resource
 	private InsuranceQuoteService insuranceQuoteService;
 	
 	@Resource

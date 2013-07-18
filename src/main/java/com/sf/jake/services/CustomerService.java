@@ -14,7 +14,7 @@ import com.sf.jake.repositories.CustomerRepository;
 @Service
 public class CustomerService {
 
-	@Resource
+	@Resource(name="customerRepository")
 	private CustomerRepository customerRepository;
 	
 	public List<Customer> getCustomers(){
