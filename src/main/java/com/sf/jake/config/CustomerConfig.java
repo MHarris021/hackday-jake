@@ -6,9 +6,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,16 +19,11 @@ import com.sf.jake.model.Gender;
 import com.sf.jake.model.Phone;
 import com.sf.jake.model.Product;
 import com.sf.jake.model.Vehicle;
-import com.sf.jake.services.CustomerService;
 
 @Configuration
 public class CustomerConfig {
 
-	
-	@Resource
-	private CustomerService customerService;
-	
-	@Bean
+	@Bean(name="johnDoe")
 	public Customer johnDoe() {
 		Customer customer = new Customer("Doe-1");
 		customer.setFirstName("John");
@@ -92,8 +84,4 @@ public class CustomerConfig {
 		return address; 
 	}
 
-	@PostConstruct
-	public void init() {
-		customerService.addCustomer(johnDoe());
-	}
 }

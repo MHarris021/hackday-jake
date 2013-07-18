@@ -2,6 +2,7 @@ package com.sf.jake.controllers.rest;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 import org.apache.commons.lang3.StringUtils;
@@ -24,7 +25,10 @@ public class CustomerController {
 
 	@Resource
 	private CustomerService customerService;
-
+	
+	@Resource(name="johnDoe")
+	private Customer johnDoe;
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Customer>> getAll() {
 		List<Customer> customers = customerService.getCustomers();
@@ -64,5 +68,11 @@ public class CustomerController {
 		ResponseEntity<Customer> responseEntity = new ResponseEntity<Customer>(
 				customer, HttpStatus.OK);
 		return responseEntity;
+	}
+	
+	@PostConstruct
+	public void init() {
+		customerService.addCustomer(johnDoe);
+		
 	}
 }
