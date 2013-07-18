@@ -19,7 +19,7 @@ public interface CustomerRepository extends CrudRepository<Customer, BigInteger>
 	List<Customer> findByLastName(String lastName);
 	
 	@Query
-	List<Customer> findByFirstAndLastName(String name);
+	List<Customer> findByFirstNameAndLastName(String firstName, String lastName);
 	
 	@Query
 	Customer findUniqueByAccountName(String accountName);

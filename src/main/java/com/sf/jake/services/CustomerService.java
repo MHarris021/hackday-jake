@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.sf.jake.model.Customer;
@@ -29,7 +30,9 @@ public class CustomerService {
 	}
 	
 	public List<Customer> getCustomersByName(String name) {
-		return customerRepository.findByFirstAndLastName(name);
+		String firstName = StringUtils.substringBefore(name, " ");
+		String lastName = StringUtils.substringAfter(name, " ");
+		return customerRepository.findByFirstNameAndLastName(firstName, lastName);
 	}
 	
 	public  Customer addCustomer(Customer customer) {
