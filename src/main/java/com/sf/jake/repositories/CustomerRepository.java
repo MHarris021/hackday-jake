@@ -5,9 +5,11 @@ import java.util.List;
 
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import com.sf.jake.model.Customer;
 
+@Repository
 public interface CustomerRepository extends CrudRepository<Customer, BigInteger> {
 
 	@Query
